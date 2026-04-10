@@ -1,0 +1,81 @@
+/* [project]/src/components/About.module.css [app-client] (css) */
+.About-module__vAULUW__section {
+  background: #fff;
+  padding: 96px 0;
+}
+
+.About-module__vAULUW__identifyGrid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  display: grid;
+}
+
+.About-module__vAULUW__statsGrid {
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+  display: grid;
+}
+
+.About-module__vAULUW__statLabel {
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-size: 12px;
+}
+
+.About-module__vAULUW__imageWrapper {
+  position: relative;
+}
+
+.About-module__vAULUW__roundedImg {
+  object-fit: cover;
+  border-radius: 16px;
+  width: 100%;
+  height: 500px;
+  box-shadow: 0 20px 40px #0000000f;
+}
+
+.About-module__vAULUW__badge {
+  border: 8px solid var(--background);
+  background: var(--secondary-container);
+  text-align: center;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 192px;
+  height: 192px;
+  padding: 24px;
+  display: flex;
+  position: absolute;
+  bottom: -32px;
+  right: -32px;
+}
+
+.About-module__vAULUW__badge p {
+  color: var(--on-secondary-container);
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .About-module__vAULUW__identifyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .About-module__vAULUW__roundedImg {
+    height: 360px;
+  }
+
+  .About-module__vAULUW__badge {
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    margin-top: 16px;
+    position: static;
+  }
+}
+
+/*# sourceMappingURL=src_components_About_module_css_0w3-wzy._.single.css.map*/

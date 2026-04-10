@@ -1,0 +1,86 @@
+/* [project]/src/components/NavBar.module.css [app-client] (css) */
+.NavBar-module__d-sbrW__nav {
+  z-index: 100;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: #fbf9f8cc;
+  border-bottom: 1px solid #0000000d;
+  width: 100%;
+  transition: all .3s;
+  position: sticky;
+  top: 0;
+}
+
+.NavBar-module__d-sbrW__nav.NavBar-module__d-sbrW__scrolled {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: #fbf9f8f2;
+  border-bottom: 1px solid #0000001a;
+  box-shadow: 0 2px 10px #0000001a;
+}
+
+.NavBar-module__d-sbrW__navContent {
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 24px;
+  display: flex;
+  position: relative;
+}
+
+.NavBar-module__d-sbrW__navLinks {
+  gap: 32px;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.NavBar-module__d-sbrW__logo {
+  width: 170px;
+}
+
+.NavBar-module__d-sbrW__navLinks {
+  gap: 32px;
+  display: flex;
+}
+
+.NavBar-module__d-sbrW__navLinks a {
+  color: #57534e;
+  font-family: Noto Serif, serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.NavBar-module__d-sbrW__navLinks a:hover {
+  color: var(--primary);
+}
+
+.NavBar-module__d-sbrW__active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
+}
+
+.NavBar-module__d-sbrW__iconBtnWrapper {
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}
+
+.NavBar-module__d-sbrW__iconBtn {
+  cursor: pointer;
+  color: var(--primary);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .NavBar-module__d-sbrW__navLinks {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=src_components_NavBar_module_css_0w3-wzy._.single.css.map*/

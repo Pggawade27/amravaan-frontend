@@ -1,0 +1,101 @@
+/* [project]/src/components/Contact.module.css [app-client] (css) */
+.Contact-module__hcVmEa__section {
+  padding: 96px 0;
+}
+
+.Contact-module__hcVmEa__contactContainer {
+  background: var(--surface-container-high);
+  border-radius: 24px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 20px 40px #0000000f;
+}
+
+.Contact-module__hcVmEa__contactInfoPanel, .Contact-module__hcVmEa__contactFormPanel {
+  flex: 1;
+  padding: 80px;
+}
+
+.Contact-module__hcVmEa__contactFormPanel {
+  background: #fff;
+}
+
+.Contact-module__hcVmEa__contactMethods {
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 16px;
+  display: flex;
+}
+
+.Contact-module__hcVmEa__contactMethod {
+  color: inherit;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+  display: flex;
+}
+
+.Contact-module__hcVmEa__iconCircle {
+  background: #fff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  box-shadow: 0 4px 6px #0000000d;
+}
+
+.Contact-module__hcVmEa__formGroup {
+  margin-bottom: 24px;
+}
+
+label {
+  color: var(--on-surface-variant);
+  margin-bottom: 8px;
+  padding: 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+}
+
+:is(input, textarea) {
+  background: var(--surface-container);
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  padding: 16px 24px;
+}
+
+.Contact-module__hcVmEa__btn {
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.Contact-module__hcVmEa__btnPrimary {
+  background: linear-gradient(to right,
+        var(--primary),
+        var(--primary-container));
+  color: var(--on-primary);
+  cursor: pointer;
+}
+
+.Contact-module__hcVmEa__contactPara {
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .Contact-module__hcVmEa__contactContainer {
+    flex-direction: column;
+  }
+
+  .Contact-module__hcVmEa__contactInfoPanel, .Contact-module__hcVmEa__contactFormPanel {
+    padding: 40px;
+  }
+}
+
+/*# sourceMappingURL=src_components_Contact_module_css_0w3-wzy._.single.css.map*/

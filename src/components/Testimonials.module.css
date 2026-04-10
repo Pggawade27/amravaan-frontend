@@ -1,0 +1,77 @@
+.section {
+  padding: 96px 0;
+}
+
+.bgLow {
+  background-color: var(--surface-container-low);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.mb64 {
+  margin-bottom: 64px;
+}
+
+.slider {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  padding-bottom: 32px;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 450px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.stars {
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.reviewText {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--on-surface);
+  line-height: 1.6;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.reviewerImg {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewer h4 {
+  margin: 0;
+}
+
+.reviewer p {
+  margin: 0;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: 300px;
+  }
+}

@@ -1,0 +1,103 @@
+.section {
+    padding: 96px 0;
+}
+
+.contactContainer {
+    display: flex;
+    background: var(--surface-container-high);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.contactInfoPanel,
+.contactFormPanel {
+    flex: 1;
+    padding: 80px;
+}
+
+.contactFormPanel {
+    background: white;
+}
+
+.contactMethods {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.contactMethod {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.iconCircle {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.formGroup {
+    margin-bottom: 24px;
+}
+
+:global(label) {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--on-surface-variant);
+    margin-bottom: 8px;
+    padding: 0 4px;
+}
+
+:global(input),
+:global(textarea) {
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--surface-container);
+    border: none;
+    border-radius: 12px;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+.btnPrimary {
+    background: linear-gradient(
+        to right,
+        var(--primary),
+        var(--primary-container)
+    );
+    color: var(--on-primary);
+    cursor: pointer;
+}
+
+.contactPara {
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .contactContainer {
+        flex-direction: column;
+    }
+
+    .contactInfoPanel,
+    .contactFormPanel {
+        padding: 40px;
+    }
+}

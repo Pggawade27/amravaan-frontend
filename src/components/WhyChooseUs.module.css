@@ -49,7 +49,26 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .mb64 {
+    margin-bottom: 40px;
+  }
+
   .grid3 {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .featureCard {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 0;
   }
 }

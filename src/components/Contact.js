@@ -1,7 +1,7 @@
 import styles from "./Contact.module.css";
 
 const contactMethods = [
-    { icon: "call", label: "+91 98765 43210", href: "tel:+919876543210" },
+    { icon: "call", label: "+91 9284533557", href: "tel:+919284533557" },
     { icon: "forum", label: "Chat on WhatsApp", href: "#" },
     { icon: "location_on", label: "Devgad, Konkan Coast, Maharashtra", href: "#" },
 ];
@@ -29,11 +29,11 @@ export default function Contact() {
                         <form>
                             <div className={styles.formGroup}>
                                 <label htmlFor="name">Full Name</label>
-                                <input id="name" type="text" placeholder="John Doe" />
+                                <input id="name" type="text" placeholder="Prasad Gawade" />
                             </div>
                             <div className={styles.formGroup}>
                                 <label htmlFor="phone">Phone Number</label>
-                                <input id="phone" type="tel" placeholder="9876543210" />
+                                <input id="phone" type="tel" placeholder="9284533557" />
                             </div>
                             <div className={styles.formGroup}>
                                 <label htmlFor="message">Message</label>

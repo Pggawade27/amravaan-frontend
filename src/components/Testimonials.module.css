@@ -71,7 +71,31 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .mb64 {
+    margin-bottom: 40px;
+  }
+
   .card {
-    min-width: 300px;
+    min-width: min(300px, 85vw);
+    padding: 28px 24px;
+  }
+
+  .reviewText {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .card {
+    min-width: min(260px, 82vw);
+    padding: 24px 20px;
   }
 }

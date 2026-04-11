@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className={styles.footerMain}>
           <div>
-            <a className={styles.logo} href="#">The Orchard</a>
+            <a className={styles.logo} href="https://amravaan.in" aria-label="Amravaan – Home">Amravaan</a>
             <p>
               Handpicking the finest flavors of Konkan for mango lovers worldwide since 1989.
             </p>
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.footerBottom}>
-          <p>© 2024 The Orchard Editorial. All rights reserved. Handpicked from Devgad.</p>
+          <p>© {new Date().getFullYear()} Amravaan. All rights reserved. Handpicked from Devgad.</p>
         </div>
       </div>
     </footer>

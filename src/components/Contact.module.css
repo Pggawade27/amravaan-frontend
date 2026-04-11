@@ -92,12 +92,37 @@
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+
     .contactContainer {
         flex-direction: column;
     }
 
     .contactInfoPanel,
     .contactFormPanel {
-        padding: 40px;
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 48px 0;
+    }
+
+    .contactInfoPanel,
+    .contactFormPanel {
+        padding: 24px 16px;
+    }
+
+    .iconCircle {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    .contactMethod {
+        gap: 16px;
     }
 }

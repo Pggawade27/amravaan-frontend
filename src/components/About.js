@@ -24,7 +24,9 @@ export default function About() {
             <img
               className={styles.roundedImg}
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA__heJuXNh9Wm7_7dKeFZm5GHnCo9xtye87LjU4W9Z9dXtUf_NzaXQ5-elARyxOdK4k12YDWA0oVi5D1KYZRNmT5m5wRDvornIiyOLZ_wvAO3E9N3p_YJ6zOIcAqgEj491dWKRt5xjnwq845vtH-Aea17m_gYPxJSD0FHKY13ynSDLau2EM3vp_blfozKnbc1rKQaf3TGbGcZvGd-KaG3tlihG0_HQSC8Lj56xMc24SRYu1vHjk1YRyAvvrXqt0Iw6tN7HAvn1eDbl"
-              alt="Orchard Farm"
+              alt="Amravaan Devgad Alphonso Mango Orchard Farm – Konkan Maharashtra"
+              width="600"
+              height="500"
             />
             <div className={styles.badge}>GI-Tagged Authentic Source</div>
           </div>

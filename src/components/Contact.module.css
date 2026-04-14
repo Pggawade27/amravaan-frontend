@@ -91,6 +91,74 @@
     margin-top: 5px;
 }
 
+.inputError {
+    outline: 2px solid #e53935 !important;
+    outline-offset: 0;
+}
+
+.errorText {
+    color: #e53935;
+    font-size: 12px;
+    margin-top: 6px;
+    padding: 0 4px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 9999;
+    min-width: 280px;
+    max-width: 480px;
+    animation: toastIn 0.3s ease;
+}
+
+.toast--success {
+    background: #1b5e20;
+    color: #fff;
+}
+
+.toast--error {
+    background: #b71c1c;
+    color: #fff;
+}
+
+.toastClose {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    opacity: 0.8;
+}
+
+.toastClose:hover {
+    opacity: 1;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .section {
         padding: 64px 0;

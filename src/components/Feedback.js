@@ -51,7 +51,7 @@ export default function Feedback() {
 
         setLoading(true);
         try {
-            const res = await fetch(`${BASE_URL}/api/user-feedback`, {
+            const res = await fetch(`${BASE_URL}/api/save-user-feedback`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

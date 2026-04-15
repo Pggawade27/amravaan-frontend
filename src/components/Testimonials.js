@@ -1,47 +1,103 @@
-import styles from "./Testimonials.module.css";
+"use client";
 
-const reviews = [
-    {
-        name: "Animesh Shah",
-        location: "Mumbai, MH",
-        text: "The aroma of these mangoes filled my entire apartment. They are perfectly sweet and nostalgic.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsgYcvoggFtTBvkU3DHd9KcmOil6VAzQIVlzba6C37pB7Uei9zBjcVbJ7EQgiw1d3ID-T9RczAc5n2DDAUKPOtqDEA3lO36L78s4oIeC-g6skUBAjkHZ8cL1zVVutDjzIo3XgS-_R9IPRxGMdGvz2b-7q6QV_t2R3ClKalCCzwqZil-By_xphIddFB69x31gJvE0eBfyynTflJlGaC0nroet3X4XNtVJmH62fpCUDQaUhMGi5okR64_RIKKs3CzawxKjb7FcaB8e07",
-    },
-    {
-        name: "Priya Kulkarni",
-        location: "Pune, MH",
-        text: "Quality is consistent, delivery is prompt, and taste is unlike market mangoes.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCHH7XHT7pt--ZRq4I9y_gEtr3PE9EeWVdLyR4YVBW6ePKu3AT82bSQL_7Zu-KnMyyEB0E_YbhUYCBD3X7CX38JYrViMyOnTqzdQp216XAJa9YbhULN0SKOBpdEGEjiUnxGCED5vLyN7VzCwnYyNcH5e8WqlENGhEELN73nWDtiF1tU7m8b1Rd_vIa_PsFqcmsMQpn1Dyr39ghAI8ud1UtXfFVIPun0RUs4E54bSt-G6pbXySwvZroayYqNmbQjX9AzESgunvNSaZPV",
-    },
-];
+import { useState, useEffect, useRef } from "react";
+import styles from "./Testimonials.module.css";
+import { BASE_URL } from "@/api/api";
+
+function StarRow({ rating }) {
+    return (
+        <div className={styles.stars} aria-label={`${rating} stars`}>
+            {Array.from({ length: 5 }).map((_, idx) => (
+                <span
+                    key={idx}
+                    className="material-symbols-outlined"
+                    style={{
+                        fontVariationSettings: idx < rating ? "'FILL' 1" : "'FILL' 0",
+                        color: idx < rating ? "var(--primary)" : "var(--outline-variant)",
+                    }}
+                >
+                    star
+                </span>
+            ))}
+        </div>
+    );
+}
+
+function ReviewCard({ item }) {
+    return (
+        <article className={styles.card}>
+            <div className={styles.reviewerContainer}>
+            <div className={styles.reviewer}>
+                <div className={styles.reviewerAvatar} aria-hidden="true">
+                    {item.name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                    <h4>{item.name}</h4>
+                    {item.location && <p>{item.location}</p>}
+                </div>
+            </div>
+            <StarRow rating={item.rating} />
+            </div>
+            <p className={styles.reviewText}>&ldquo;{item.feedback}&rdquo;</p>
+        </article>
+    );
+}
 
 export default function Testimonials() {
+    const [reviews, setReviews] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
+    const trackRef = useRef(null);
+
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 768px)");
+        setIsMobile(mq.matches);
+        const handler = (e) => setIsMobile(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
+
+    useEffect(() => {
+        fetch(`${BASE_URL}/api/get-user-feedback`)
+            .then((r) => r.json())
+            .then((data) => {
+                if (Array.isArray(data)) setReviews(data);
+            })
+            .catch(() => {});
+    }, []);
+
+    const marqueeThreshold = isMobile ? 1 : 3;
+    const useMarquee = reviews.length > marqueeThreshold;
+
+    /* Duplicate cards so the loop is seamless */
+    const displayItems = useMarquee ? [...reviews, ...reviews] : reviews;
+
+    if (reviews.length === 0) return null;
+
     return (
         <section className={`${styles.section} ${styles.bgLow}`}>
             <div className="container">
                 <div className={`${styles.textCenter} ${styles.mb64}`}>
-                    <h2 className="font-headline">Word from the Orchards</h2>
-                </div>
-                <div className={styles.slider}>
-                    {reviews.map((review) => (
-                        <article key={review.name} className={styles.card}>
-                            <div className={styles.stars} aria-label="5 stars">
-                                {Array.from({ length: 5 }).map((_, idx) => (
-                                    <span key={idx} className="material-symbols-outlined">star</span>
-                                ))}
-                            </div>
-                            <p className={styles.reviewText}>{review.text}</p>
-                            <div className={styles.reviewer}>
-                                <img className={styles.reviewerImg} src={review.image} alt={review.name} />
-                                <div>
-                                    <h4>{review.name}</h4>
-                                    <p>{review.location}</p>
-                                </div>
-                            </div>
-                        </article>
-                    ))}
+                    <h2 className="font-headline">Word from the Amravaan</h2>
                 </div>
             </div>
+
+            {useMarquee ? (
+                <div className={styles.marqueeWrapper}>
+                    <div className={styles.marqueeTrack} ref={trackRef}>
+                        {displayItems.map((item, idx) => (
+                            <ReviewCard key={`${item.id}-${idx}`} item={item} />
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                <div className="container">
+                    <div className={styles.staticGrid}>
+                        {reviews.map((item) => (
+                            <ReviewCard key={item.id} item={item} />
+                        ))}
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

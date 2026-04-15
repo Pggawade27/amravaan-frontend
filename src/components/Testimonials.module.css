@@ -14,54 +14,98 @@
   margin-bottom: 64px;
 }
 
-.slider {
+/* ── Static grid (few cards) ── */
+.staticGrid {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
-  overflow-x: auto;
-  padding-bottom: 32px;
-  scrollbar-width: none;
+  justify-content: center;
 }
 
-.slider::-webkit-scrollbar {
-  display: none;
+/* ── Marquee ── */
+.marqueeWrapper {
+  overflow: hidden;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
+.marqueeTrack {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+  padding: 8px 0 32px;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Card ── */
 .card {
-  min-width: 450px;
+  min-width: 380px;
+  max-width: 420px;
   background: white;
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
 }
 
 .stars {
-  color: var(--primary);
-  margin-bottom: 24px;
+  display: flex;
+  gap: 2px;
 }
 
 .reviewText {
-  font-size: 18px;
+  font-size: 17px;
   font-style: italic;
   color: var(--on-surface);
   line-height: 1.6;
+  margin-top: 24px;
 }
 
 .reviewer {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 14px;
 }
 
-.reviewerImg {
+.reviewerAvatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  object-fit: cover;
+  background: var(--primary-container, #ffd8a8);
+  color: var(--on-primary-container, #4a2800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
 }
 
 .reviewer h4 {
   margin: 0;
+  font-size: 15px;
 }
 
 .reviewer p {
@@ -70,6 +114,13 @@
   font-size: 12px;
 }
 
+.reviewerContainer {
+  display: flex; 
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .section {
     padding: 64px 0;
@@ -80,12 +131,17 @@
   }
 
   .card {
-    min-width: min(300px, 85vw);
+    min-width: min(300px, 80vw);
+    max-width: min(300px, 80vw);
     padding: 28px 24px;
   }
 
   .reviewText {
     font-size: 14px;
+  }
+
+  .marqueeTrack {
+    animation-duration: 28s;
   }
 }
 
@@ -95,7 +151,8 @@
   }
 
   .card {
-    min-width: min(260px, 82vw);
+    min-width: min(310px, 82vw);
+    max-width: min(310px, 82vw);
     padding: 24px 20px;
   }
 }

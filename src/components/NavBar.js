@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./NavBar.module.css";
 
-const mangoesImg = "/assets/logo/brand-logo.png";
+const brandLogo = "/assets/logo/brand-logo.png";
 
 const navLinks = [
     { href: "#shop", label: "Shop" },
@@ -68,7 +68,7 @@ export default function NavBar() {
         <>
             <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
                 <div className={`${styles.container} ${styles.navContent}`}>
-                    <img className={styles.logo} src={mangoesImg} alt="Amravaan – Devgad Alphonso Mangoes" />
+                    <img className={styles.logo} src={brandLogo} alt="Amravaan – Devgad Alphonso Mangoes" />
 
                     <div className={styles.navLinks}>
                         {navLinks.map((link) => (
@@ -114,7 +114,7 @@ export default function NavBar() {
                 aria-label="Navigation menu"
             >
                 <div className={styles.mobileMenuHeader}>
-                    <img className={styles.mobileLogo} src={mangoesImg} alt="Amravaan" />
+                    <img className={styles.mobileLogo} src={brandLogo} alt="Amravaan" />
                     <button
                         className={styles.closeBtn}
                         onClick={() => setMenuOpen(false)}

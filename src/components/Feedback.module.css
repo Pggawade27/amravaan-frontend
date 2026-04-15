@@ -1,0 +1,371 @@
+.section {
+    padding: 64px 0;
+    padding-top: calc(64px + 80px);
+    min-height: 100vh;
+    background: var(--background);
+}
+
+.feedbackContainer {
+    display: flex;
+    background: var(--surface-container-high);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Left info panel ── */
+.infoPanel {
+    flex: 1;
+    padding: 80px;
+    background: linear-gradient(
+        160deg,
+        var(--primary) 0%,
+        var(--primary-container) 100%
+    );
+    color: var(--on-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.infoPanel h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.25;
+    color: var(--on-primary);
+}
+
+.bigIcon {
+    font-size: 48px;
+    opacity: 0.9;
+}
+
+.infoPara {
+    opacity: 0.9;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.highlightItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.highlightItem .material-symbols-outlined {
+    font-size: 20px;
+    opacity: 0.85;
+    flex-shrink: 0;
+}
+
+/* ── Right form panel ── */
+.formPanel {
+    flex: 1;
+    padding: 80px;
+    background: white;
+}
+
+.form {
+    position: relative;
+}
+
+.formOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.formGroup {
+    margin-bottom: 24px;
+}
+
+.formGroup label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--on-surface-variant);
+    margin-bottom: 8px;
+    padding: 0 4px;
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--surface-container-low);
+    border: 1.5px solid var(--outline-variant);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--primary);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.optionalBadge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--on-primary);
+    background: var(--outline);
+    padding: 2px 8px;
+    border-radius: 999px;
+    line-height: 1.6;
+}
+
+/* ── Star rating ── */
+.starRow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.starBtn {
+    background: none;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.15s ease;
+    border-radius: 4px;
+}
+
+/* .starBtn:hover {
+    transform: scale(1.2);
+} */
+
+.starBtn .material-symbols-outlined {
+    font-size: 32px;
+    transition: color 0.15s ease;
+}
+
+.starFilled .material-symbols-outlined {
+    color: var(--primary-container);
+    font-variation-settings: 'FILL' 1, 'wght' 400;
+}
+
+.starEmpty .material-symbols-outlined {
+    color: var(--outline-variant);
+    font-variation-settings: 'FILL' 0, 'wght' 400;
+}
+
+.ratingLabel {
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 72px;
+}
+
+/* ── Button ── */
+.btn {
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    font-size: 15px;
+}
+
+.btnSpinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btnPrimary {
+    background: linear-gradient(
+        to right,
+        var(--primary),
+        var(--primary-container)
+    );
+    color: var(--on-primary);
+    cursor: pointer;
+}
+
+.btnPrimary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btnPrimary .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* ── Validation ── */
+.inputError {
+    border-color: #e53935 !important;
+    outline: none !important;
+}
+
+.errorText {
+    color: #e53935;
+    font-size: 12px;
+    margin-top: 6px;
+    padding: 0 4px;
+}
+
+/* ── Toast ── */
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 9999;
+    min-width: 280px;
+    max-width: 480px;
+    animation: toastIn 0.3s ease;
+}
+
+.toast--success {
+    background: #1b5e20;
+    color: #fff;
+}
+
+.toast--error {
+    background: #b71c1c;
+    color: #fff;
+}
+
+.toastClose {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    opacity: 0.8;
+}
+
+.toastClose:hover {
+    opacity: 1;
+}
+
+.logo {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.logoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--surface, #fff);
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .feedbackContainer {
+        flex-direction: column;
+        margin-top: 55px;
+    }
+
+    .infoPanel,
+    .formPanel {
+        padding: 32px 24px;
+    }
+
+    .bigIcon {
+        font-size: 36px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 20px 0;
+    }
+
+    .infoPanel,
+    .formPanel {
+        padding: 24px 16px;
+    }
+
+    .starBtn .material-symbols-outlined {
+        font-size: 28px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

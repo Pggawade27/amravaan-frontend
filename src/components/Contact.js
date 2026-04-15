@@ -108,7 +108,12 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.contactFormPanel}>
-                        <form onSubmit={handleSubmit} noValidate>
+                        <form onSubmit={handleSubmit} noValidate className={styles.form}>
+                            {loading && (
+                                <div className={styles.formOverlay} aria-hidden="true">
+                                    <span className={styles.spinner} />
+                                </div>
+                            )}
                             <div className={styles.formGroup}>
                                 <label htmlFor="name">Full Name</label>
                                 <input
@@ -151,7 +156,12 @@ export default function Contact() {
                                 type="submit"
                                 disabled={loading}
                             >
-                                {loading ? "Sending…" : "Send Message"}
+                                {loading ? (
+                                    <>
+                                        <span className={styles.btnSpinner} />
+                                        Sending…
+                                    </>
+                                ) : "Send Message"}
                             </button>
                         </form>
                     </div>

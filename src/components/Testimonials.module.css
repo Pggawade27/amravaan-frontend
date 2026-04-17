@@ -64,7 +64,7 @@
   min-width: 380px;
   max-width: 420px;
   background: white;
-  padding: 40px;
+  padding: 25px;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
@@ -90,8 +90,8 @@
 }
 
 .reviewerAvatar {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--primary-container, #ffd8a8);
   color: var(--on-primary-container, #4a2800);
@@ -99,7 +99,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
@@ -118,6 +118,10 @@
   display: flex; 
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.anonymous {
+  visibility: hidden;
 }
 
 /* ── Responsive ── */

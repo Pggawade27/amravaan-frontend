@@ -14,6 +14,7 @@ function StarRow({ rating }) {
                     style={{
                         fontVariationSettings: idx < rating ? "'FILL' 1" : "'FILL' 0",
                         color: idx < rating ? "var(--primary)" : "var(--outline-variant)",
+                        fontSize: "20px",
                     }}
                 >
                     star
@@ -33,7 +34,7 @@ function ReviewCard({ item }) {
                 </div>
                 <div>
                     <h4>{item.name}</h4>
-                    {item.location && <p>{item.location}</p>}
+                    {item.location ? <p>{item.location}</p> : <p className={styles.anonymous}>Anonymous</p>}
                 </div>
             </div>
             <StarRow rating={item.rating} />

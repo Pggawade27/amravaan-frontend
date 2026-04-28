@@ -126,7 +126,7 @@ export default function Feedback() {
                                 <input
                                     id="name"
                                     type="text"
-                                    placeholder="Prasad Gawade"
+                                    placeholder="Enter your name"
                                     value={form.name}
                                     onChange={handleChange}
                                     className={errors.name ? styles.inputError : ""}
